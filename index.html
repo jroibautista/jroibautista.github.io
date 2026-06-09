@@ -82,10 +82,7 @@
     h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; margin-bottom: 2.5rem; letter-spacing: -0.02em; }
     #skills { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
-    .skill-card {
-      padding: 1.5rem; background: var(--bg);
-      border: 1px solid var(--border); border-radius: 10px;
-    }
+    .skill-card { padding: 1.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
     .skill-card:hover { border-color: var(--accent); }
     .skill-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
     .skill-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
@@ -109,4 +106,150 @@
     .project-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
     .project-card p { font-size: 0.87rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.65; }
     .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag { font-family: monospace;
+    .tag { font-family: monospace; font-size: 0.72rem; padding: 0.2rem 0.55rem; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 4px; color: var(--muted); }
+    .contact-box {
+      text-align: center; padding: 4rem 2rem;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    }
+    .contact-box h2 { margin-bottom: 0.75rem; }
+    .contact-box p { color: var(--muted); margin-bottom: 2rem; font-size: 0.95rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    footer {
+      text-align: center; padding: 2rem;
+      font-family: monospace; font-size: 0.75rem; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      section { padding: 3.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">roi.dev</span>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Hire Me</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Available for freelance work</p>
+    <h1>Roi Bautista<br><span>VA & Player Support</span></h1>
+    <p class="hero-sub">CS graduate from STI Ortigas Cainta. 5+ years working with AAA game studios across player support, community moderation, content creation, and team management. I work fast, communicate well, and know how to get things done.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Get in Touch</a>
+      <a href="#experience" class="btn btn-outline">View Experience</a>
+    </div>
+    <div class="rate-badge">
+      <span class="dot"></span>
+      &nbsp;Available now &mdash; <strong>$5/hr</strong> &nbsp;&middot;&nbsp; 40hrs/week &nbsp;&middot;&nbsp; Open to long-term
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <p class="section-label">What I do</p>
+    <h2>Skills & Tools</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="skill-icon">🎮</div><h3>Player Support & Moderation</h3><p>T1–T3 player engagement across AAA titles. Escalations, community health, and trust management at scale.</p></div>
+      <div class="skill-card"><div class="skill-icon">📋</div><h3>Project & Team Management</h3><p>Managed multiple teams simultaneously above team lead level. On deadline, organized, and results-driven.</p></div>
+      <div class="skill-card"><div class="skill-icon">✍️</div><h3>Content Creation & SEO</h3><p>YouTube & TikTok guides with AI-assisted video editing. Google Trends research and discoverability optimization.</p></div>
+      <div class="skill-card"><div class="skill-icon">🤖</div><h3>AI-Powered Workflows</h3><p>Proficient with Claude, ChatGPT, and NotebookLM — used daily as real productivity tools.</p></div>
+      <div class="skill-card"><div class="skill-icon">🛠️</div><h3>Tools & Tech</h3><p>WordPress · Google Sheets · Discord Management · Basic Dev · SEO Research</p></div>
+      <div class="skill-card"><div class="skill-icon">💻</div><h3>CS Background</h3><p>Computer Science graduate from STI Ortigas Cainta. Built an in-house clock-in tracker, comfortable with data and automation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Work History</p>
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="tl-meta">Oct 2024 — Jun 2026</p>
+        <p class="tl-company">VA Side Job</p>
+        <p class="tl-title">Project Manager / Content Creator</p>
+        <p class="tl-desc">Managed multiple teams above team lead level. Created guides and content for YouTube & TikTok, handled Discord, WordPress, SEO research, Google Sheets, and built an in-house clock-in tracker.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="tl-meta">Dec 2023 — Jul 2025</p>
+        <p class="tl-company">Scopely (via Keywords Studios Manila)</p>
+        <p class="tl-title">Moderator — Monopoly Go!</p>
+        <p class="tl-desc">Community moderation for one of the most downloaded mobile titles. Maintained community health and player trust.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="tl-meta">Jan 2022 — Dec 2024</p>
+        <p class="tl-company">Amazon Games (via Keywords Studios Manila)</p>
+        <p class="tl-title">T3 Player Engagement — New World / Lost Ark</p>
+        <p class="tl-desc">Tier 3 player support for two major live-service titles. Handled complex escalations and high-stakes player issues.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="tl-meta">May 2021 — Jan 2022</p>
+        <p class="tl-company">343 Industries (via Keywords Studios Manila)</p>
+        <p class="tl-title">Player Engagement — Halo</p>
+        <p class="tl-desc">Player support for the Halo franchise during the Halo Infinite launch window.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="tl-meta">Jan 2020 — May 2021</p>
+        <p class="tl-company">Playdemic (via Keywords Studios Manila)</p>
+        <p class="tl-title">Player Engagement</p>
+        <p class="tl-desc">Built foundational skills in ticketing, escalation, and player communication.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <p class="section-label">What I've built</p>
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>In-House Clock-In Tracker</h3>
+        <p>Built a custom attendance and time-tracking tool for the team. Replaced manual logging and reduced admin overhead.</p>
+        <div class="tag-row"><span class="tag">Dev</span><span class="tag">Google Sheets</span><span class="tag">Automation</span></div>
+      </div>
+      <div class="project-card">
+        <h3>Content & Guide Creation</h3>
+        <p>Produced game guides and content for YouTube and TikTok using AI-assisted video editing and SEO-informed research.</p>
+        <div class="tag-row"><span class="tag">YouTube</span><span class="tag">TikTok</span><span class="tag">SEO</span><span class="tag">AI Tools</span></div>
+      </div>
+      <div class="project-card">
+        <h3>Multi-Team Management</h3>
+        <p>Led and coordinated multiple teams as Project Manager, handling workflows, deadlines, and deliverables.</p>
+        <div class="tag-row"><span class="tag">Project Management</span><span class="tag">Discord</span><span class="tag">Leadership</span></div>
+      </div>
+    </div>
+    <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--muted);">More projects coming soon.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <p class="section-label" style="margin-bottom:0.5rem;">Let's work together</p>
+      <h2>Available for Hire</h2>
+      <p>$5/hr &middot; 40 hours/week &middot; Open to long-term contracts<br>Player support, VA work, moderation, content, project management — I do it all.</p>
+      <div class="contact-links">
+        <a href="https://github.com/jroibautista" class="btn btn-outline" target="_blank">GitHub</a>
+        <a href="mailto:bautistajessieroi@gmail.com" class="btn btn-primary">Email Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Roi Bautista &mdash; Built with GitHub Pages</p>
+</footer>
+
+</body>
+</html>
