@@ -65,7 +65,6 @@
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; }
     section { padding: 5rem 2rem; }
     .container { max-width: 900px; margin: 0 auto; }
     .section-label {
@@ -223,20 +222,23 @@
     <div class="projects-grid">
       <div class="featured-project">
         <div>
-          <h3>TheriaGames Clock — Internal Staff Tool</h3>
-          <p>A full-stack attendance and team management system built from scratch for a gaming studio. Handles real-time clock-in/out, task scheduling, game news, payroll summaries, and staff coordination — all in a single web app with a polished dark UI.</p>
+          <h3>Clock In Service — Internal Staff Tool</h3>
+          <p>A full-stack attendance and team management system built from scratch. Handles real-time clock-in/out, task scheduling, game news, payroll summaries, and staff coordination — all in a single web app with a polished dark UI.</p>
           <div class="tag-row" style="margin-bottom:1rem">
             <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">lowdb</span>
             <span class="tag">Web Audio API</span><span class="tag">Canvas</span><span class="tag">TOTP 2FA</span>
           </div>
-          <a href="https://github.com/jroibautista" class="btn btn-outline" target="_blank" style="font-size:0.82rem;padding:0.5rem 1.1rem">View GitHub</a>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <a href="https://github.com/jroibautista/ClockIn" class="btn btn-outline" target="_blank" style="font-size:0.82rem;padding:0.5rem 1.1rem">View GitHub</a>
+            <a href="http://localhost:3000" class="btn btn-primary" target="_blank" style="font-size:0.82rem;padding:0.5rem 1.1rem">&#9654; Live Demo</a>
+          </div>
         </div>
         <div class="featured-details">
           <div class="feat-item"><span class="feat-dot"></span><div><strong>Auth & Security</strong> — TOTP 2FA, session management, IP lockouts after failed logins, auto clock-out on disconnect</div></div>
           <div class="feat-item"><span class="feat-dot"></span><div><strong>Task System</strong> — Recurring & one-time tasks, due dates, scheduling, per-employee assignment, undo completions</div></div>
           <div class="feat-item"><span class="feat-dot"></span><div><strong>Real-time Features</strong> — Health-check reconnect loop, disconnect alerts, live clock, new-task toast notifications</div></div>
           <div class="feat-item"><span class="feat-dot"></span><div><strong>Admin Panel</strong> — Payroll, archive, user management, activity logs, settings, name-change approvals</div></div>
-          <div class="feat-item"><span class="feat-dot"></span><div><strong>Game News Hub</strong> — Live RSS feeds per game, category filters, social links, auto-refresh</div></div>
+          <div class="feat-item"><span class="feat-dot"></span><div><strong>News Hub</strong> — Live RSS feeds, category filters, social links, auto-refresh</div></div>
         </div>
       </div>
       <div class="project-card">
@@ -258,7 +260,7 @@
     <div class="contact-box">
       <p class="section-label" style="margin-bottom:0.5rem;">Let's work together</p>
       <h2>Available for Hire</h2>
-      <p>$5/hr &middot; 40 hours/week &middot; Open to long-term contracts<br>Player support, VA work, moderation, content, project management — I do it all.</p>
+      <p>Open to long-term contracts<br>Player support, VA work, moderation, content, project management — I do it all.</p>
       <div class="contact-links">
         <a href="https://github.com/jroibautista" class="btn btn-outline" target="_blank">GitHub</a>
         <a href="mailto:bautistajessieroi@gmail.com" class="btn btn-primary">Email Me</a>
