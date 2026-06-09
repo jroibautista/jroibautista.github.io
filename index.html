@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Roi Bautista — VA & Player Support Specialist</title>
+  <title>Jessie Roi Bautista — VA & Player Support Specialist</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -60,18 +60,11 @@
     .btn {
       display: inline-block; padding: 0.75rem 1.75rem;
       border-radius: 6px; font-size: 0.9rem; font-weight: 600;
-      text-decoration: none; border: none; font-family: inherit;
+      text-decoration: none; border: none; font-family: inherit; cursor: pointer;
     }
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-    .rate-badge {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      margin-top: 2rem; padding: 0.5rem 1rem;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 100px; font-family: monospace; font-size: 0.8rem; color: var(--muted);
-    }
-    .rate-badge strong { color: var(--accent2); }
     .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; }
     section { padding: 5rem 2rem; }
     .container { max-width: 900px; margin: 0 auto; }
@@ -82,7 +75,7 @@
     h2 { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 700; margin-bottom: 2.5rem; letter-spacing: -0.02em; }
     #skills { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
-    .skill-card { padding: 1.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
+    .skill-card { padding: 1.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; transition: border-color 0.2s; }
     .skill-card:hover { border-color: var(--accent); }
     .skill-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
     .skill-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
@@ -101,12 +94,36 @@
     .tl-desc { font-size: 0.88rem; color: var(--muted); }
     #projects { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
-    .project-card { padding: 1.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
+    .project-card { padding: 1.75rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; transition: border-color 0.2s; }
     .project-card:hover { border-color: var(--accent2); }
     .project-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
     .project-card p { font-size: 0.87rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.65; }
     .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tag { font-family: monospace; font-size: 0.72rem; padding: 0.2rem 0.55rem; background: var(--tag-bg); border: 1px solid var(--border); border-radius: 4px; color: var(--muted); }
+    .featured-project {
+      grid-column: 1 / -1;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+      padding: 2rem; background: var(--bg);
+      border: 1px solid var(--accent2); border-radius: 12px;
+      position: relative; overflow: hidden;
+    }
+    .featured-project::before {
+      content: 'FEATURED';
+      position: absolute; top: 1rem; right: 1rem;
+      font-family: monospace; font-size: 0.65rem; font-weight: 700;
+      color: var(--accent2); letter-spacing: 0.1em;
+      background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.3);
+      padding: 0.2rem 0.55rem; border-radius: 4px;
+    }
+    .featured-project h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .featured-project p { font-size: 0.88rem; color: var(--muted); margin-bottom: 1rem; line-height: 1.7; }
+    .featured-details { display: flex; flex-direction: column; gap: 0.65rem; }
+    .feat-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: var(--muted); }
+    .feat-item strong { color: var(--text); white-space: nowrap; }
+    .feat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; margin-top: 6px; }
+    @media (max-width: 700px) {
+      .featured-project { grid-template-columns: 1fr; }
+    }
     .contact-box {
       text-align: center; padding: 4rem 2rem;
       background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
@@ -127,9 +144,8 @@
   </style>
 </head>
 <body>
-
 <nav>
-  <span class="nav-logo">roi.dev</span>
+  <span class="nav-logo">jessieroi.dev</span>
   <div class="nav-links">
     <a href="#skills">Skills</a>
     <a href="#experience">Experience</a>
@@ -137,23 +153,17 @@
     <a href="#contact">Hire Me</a>
   </div>
 </nav>
-
 <section class="hero">
   <div class="hero-inner">
     <p class="hero-eyebrow">Available for freelance work</p>
-    <h1>Roi Bautista<br><span>VA & Player Support</span></h1>
+    <h1>Jessie Roi Bautista<br><span>VA & Player Support</span></h1>
     <p class="hero-sub">CS graduate from STI Ortigas Cainta. 5+ years working with AAA game studios across player support, community moderation, content creation, and team management. I work fast, communicate well, and know how to get things done.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn btn-primary">Get in Touch</a>
       <a href="#experience" class="btn btn-outline">View Experience</a>
     </div>
-    <div class="rate-badge">
-      <span class="dot"></span>
-      &nbsp;Available now &mdash; <strong>$5/hr</strong> &nbsp;&middot;&nbsp; 40hrs/week &nbsp;&middot;&nbsp; Open to long-term
-    </div>
   </div>
 </section>
-
 <section id="skills">
   <div class="container">
     <p class="section-label">What I do</p>
@@ -163,12 +173,11 @@
       <div class="skill-card"><div class="skill-icon">📋</div><h3>Project & Team Management</h3><p>Managed multiple teams simultaneously above team lead level. On deadline, organized, and results-driven.</p></div>
       <div class="skill-card"><div class="skill-icon">✍️</div><h3>Content Creation & SEO</h3><p>YouTube & TikTok guides with AI-assisted video editing. Google Trends research and discoverability optimization.</p></div>
       <div class="skill-card"><div class="skill-icon">🤖</div><h3>AI-Powered Workflows</h3><p>Proficient with Claude, ChatGPT, and NotebookLM — used daily as real productivity tools.</p></div>
-      <div class="skill-card"><div class="skill-icon">🛠️</div><h3>Tools & Tech</h3><p>WordPress · Google Sheets · Discord Management · Basic Dev · SEO Research</p></div>
-      <div class="skill-card"><div class="skill-icon">💻</div><h3>CS Background</h3><p>Computer Science graduate from STI Ortigas Cainta. Built an in-house clock-in tracker, comfortable with data and automation.</p></div>
+      <div class="skill-card"><div class="skill-icon">🛠️</div><h3>Tools & Tech</h3><p>WordPress · Google Sheets · Discord Management · Node.js · Express · SEO Research</p></div>
+      <div class="skill-card"><div class="skill-icon">💻</div><h3>CS Background</h3><p>Computer Science graduate from STI Ortigas Cainta. Built a full-stack internal tool with auth, scheduling, and real-time features.</p></div>
     </div>
   </div>
 </section>
-
 <section id="experience">
   <div class="container">
     <p class="section-label">Work History</p>
@@ -207,16 +216,28 @@
     </div>
   </div>
 </section>
-
 <section id="projects">
   <div class="container">
     <p class="section-label">What I've built</p>
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="project-card">
-        <h3>In-House Clock-In Tracker</h3>
-        <p>Built a custom attendance and time-tracking tool for the team. Replaced manual logging and reduced admin overhead.</p>
-        <div class="tag-row"><span class="tag">Dev</span><span class="tag">Google Sheets</span><span class="tag">Automation</span></div>
+      <div class="featured-project">
+        <div>
+          <h3>TheriaGames Clock — Internal Staff Tool</h3>
+          <p>A full-stack attendance and team management system built from scratch for a gaming studio. Handles real-time clock-in/out, task scheduling, game news, payroll summaries, and staff coordination — all in a single web app with a polished dark UI.</p>
+          <div class="tag-row" style="margin-bottom:1rem">
+            <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">lowdb</span>
+            <span class="tag">Web Audio API</span><span class="tag">Canvas</span><span class="tag">TOTP 2FA</span>
+          </div>
+          <a href="https://github.com/jroibautista" class="btn btn-outline" target="_blank" style="font-size:0.82rem;padding:0.5rem 1.1rem">View GitHub</a>
+        </div>
+        <div class="featured-details">
+          <div class="feat-item"><span class="feat-dot"></span><div><strong>Auth & Security</strong> — TOTP 2FA, session management, IP lockouts after failed logins, auto clock-out on disconnect</div></div>
+          <div class="feat-item"><span class="feat-dot"></span><div><strong>Task System</strong> — Recurring & one-time tasks, due dates, scheduling, per-employee assignment, undo completions</div></div>
+          <div class="feat-item"><span class="feat-dot"></span><div><strong>Real-time Features</strong> — Health-check reconnect loop, disconnect alerts, live clock, new-task toast notifications</div></div>
+          <div class="feat-item"><span class="feat-dot"></span><div><strong>Admin Panel</strong> — Payroll, archive, user management, activity logs, settings, name-change approvals</div></div>
+          <div class="feat-item"><span class="feat-dot"></span><div><strong>Game News Hub</strong> — Live RSS feeds per game, category filters, social links, auto-refresh</div></div>
+        </div>
       </div>
       <div class="project-card">
         <h3>Content & Guide Creation</h3>
@@ -232,7 +253,6 @@
     <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--muted);">More projects coming soon.</p>
   </div>
 </section>
-
 <section id="contact">
   <div class="container">
     <div class="contact-box">
@@ -246,10 +266,8 @@
     </div>
   </div>
 </section>
-
 <footer>
-  <p>© 2026 Roi Bautista &mdash; Built with GitHub Pages</p>
+  <p>&copy; 2026 Jessie Roi Bautista &mdash; Built with GitHub Pages</p>
 </footer>
-
 </body>
 </html>
