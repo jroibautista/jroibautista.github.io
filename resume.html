@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume — Jessie Roi Bautista</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #0d0f14;
+      --surface: #141720;
+      --border:  #1f2330;
+      --accent:  #4f8cff;
+      --accent2: #a78bfa;
+      --text:    #e8eaf0;
+      --muted:   #7a7f94;
+      --tag-bg:  #1a1f2e;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: 16px; line-height: 1.6; overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(13,15,20,0.95); border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: monospace; font-size: 0.9rem; color: var(--accent); text-decoration: none; }
+    .nav-right { display: flex; gap: 1rem; align-items: center; }
+    .nav-back { font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+    .nav-back:hover { color: var(--text); }
+    .btn {
+      display: inline-block; padding: 0.5rem 1.25rem;
+      border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; border: none; font-family: inherit; cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* LAYOUT */
+    .page { max-width: 860px; margin: 0 auto; padding: 7rem 2rem 5rem; }
+
+    /* HEADER */
+    .resume-header {
+      text-align: center; padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border); margin-bottom: 3rem;
+    }
+    .resume-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+      letter-spacing: -0.02em; margin-bottom: 0.5rem;
+    }
+    .resume-header .subtitle {
+      font-size: 1rem; color: var(--accent); margin-bottom: 1rem;
+    }
+    .resume-header .contact-row {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 1.25rem;
+      font-family: monospace; font-size: 0.78rem; color: var(--muted);
+    }
+    .resume-header .contact-row a { color: var(--muted); text-decoration: none; }
+    .resume-header .contact-row a:hover { color: var(--accent); }
+    .header-actions { display: flex; justify-content: center; gap: 1rem; margin-top: 1.75rem; flex-wrap: wrap; }
+
+    /* SECTION */
+    .section { margin-bottom: 3rem; }
+    .section-label {
+      font-family: monospace; font-size: 0.72rem; color: var(--accent);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 1.25rem; padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* PROFILE */
+    .profile-text {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.8;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.5rem 1.75rem;
+    }
+
+    /* EXPERIENCE */
+    .exp-item { margin-bottom: 2rem; }
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.2rem; }
+    .exp-title { font-size: 1rem; font-weight: 700; }
+    .exp-date { font-family: monospace; font-size: 0.75rem; color: var(--accent2); white-space: nowrap; }
+    .exp-company { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.6rem; }
+    .exp-bullets { list-style: none; padding: 0; }
+    .exp-bullets li {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.65;
+      padding: 0.2rem 0 0.2rem 1.1rem; position: relative;
+    }
+    .exp-bullets li::before {
+      content: '▸'; position: absolute; left: 0;
+      color: var(--accent); font-size: 0.7rem; top: 0.35rem;
+    }
+
+    /* SKILLS */
+    .skills-group { margin-bottom: 1.1rem; }
+    .skills-group-label {
+      font-size: 0.8rem; font-weight: 700; color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag {
+      font-family: monospace; font-size: 0.72rem;
+      padding: 0.25rem 0.65rem; background: var(--tag-bg);
+      border: 1px solid var(--border); border-radius: 4px; color: var(--muted);
+    }
+    .tag.highlight { border-color: rgba(79,140,255,0.35); color: var(--accent); }
+
+    /* EDUCATION */
+    .edu-item { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; }
+    .edu-degree { font-size: 1rem; font-weight: 700; }
+    .edu-date { font-family: monospace; font-size: 0.75rem; color: var(--accent2); }
+    .edu-school { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 2rem;
+      font-family: monospace; font-size: 0.75rem; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media(max-width:600px) {
+      nav { padding: 1rem 1.25rem; }
+      .page { padding: 6rem 1.25rem 4rem; }
+      .exp-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="portfolio.html" class="nav-logo">jessieroi.dev</a>
+  <div class="nav-right">
+    <a href="portfolio.html" class="nav-back">← Portfolio</a>
+    <a href="Jessie_Roi_Bautista_Resume.pdf" class="btn btn-outline" download>⬇ Download PDF</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="resume-header">
+    <h1>Jessie Roi Bautista</h1>
+    <p class="subtitle">Virtual Assistant · Administrative & Operations Specialist</p>
+    <div class="contact-row">
+      <span>09397264381</span>
+      <a href="mailto:bautistajessieroi@gmail.com">bautistajessieroi@gmail.com</a>
+      <a href="https://jroibautista.github.io" target="_blank">jroibautista.github.io</a>
+      <span>Silang, Cavite · Remote</span>
+    </div>
+    <div class="header-actions">
+      <a href="mailto:bautistajessieroi@gmail.com" class="btn btn-primary">Email Me</a>
+      <a href="Jessie_Roi_Bautista_Resume.pdf" class="btn btn-outline" download>⬇ Download Resume</a>
+    </div>
+  </div>
+
+  <!-- PROFILE -->
+  <div class="section">
+    <p class="section-label">Profile</p>
+    <p class="profile-text">CS graduate with 6+ years of experience in customer support, community moderation, content creation, and administrative operations. Worked with AAA game studios including 343 Industries, Amazon Games, and Scopely, progressing from frontline support to managing multiple teams above team lead level. Reliable, self-directed, and available full-time for remote work.</p>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <p class="section-label">Experience</p>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Project Manager / VA</span>
+        <span class="exp-date">Oct 2024 – Jun 2026</span>
+      </div>
+      <p class="exp-company">Remote — VA Side Job</p>
+      <ul class="exp-bullets">
+        <li>Managed multiple teams simultaneously above team lead level; coordinated schedules, workflows, and deliverables</li>
+        <li>Built an in-house clock-in and attendance tracker to replace manual logging</li>
+        <li>Maintained Google Sheets data systems and generated reports for team performance tracking</li>
+        <li>Created guides and video content for YouTube and TikTok with AI-assisted editing</li>
+        <li>Managed Discord communities, WordPress site, and SEO research via Google Trends</li>
+        <li>Utilized Claude, ChatGPT, and NotebookLM daily to streamline operations and content production</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Moderator — Monopoly Go!</span>
+        <span class="exp-date">Dec 2023 – Jul 2025</span>
+      </div>
+      <p class="exp-company">Keywords Studios Manila (Scopely)</p>
+      <ul class="exp-bullets">
+        <li>Moderated one of the most downloaded mobile titles globally</li>
+        <li>Maintained community health, enforced guidelines, and handled player escalations</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">T3 Player Engagement — New World / Lost Ark</span>
+        <span class="exp-date">Jan 2022 – Dec 2024</span>
+      </div>
+      <p class="exp-company">Keywords Studios Manila (Amazon Games)</p>
+      <ul class="exp-bullets">
+        <li>Handled Tier 3 player support — the most complex escalations across two major live-service titles</li>
+        <li>Maintained documentation, processed tickets, and coordinated with internal teams</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Player Engagement — Halo</span>
+        <span class="exp-date">May 2021 – Jan 2022</span>
+      </div>
+      <p class="exp-company">Keywords Studios Manila (343 Industries)</p>
+      <ul class="exp-bullets">
+        <li>Provided player support during the Halo Infinite launch window</li>
+        <li>Maintained brand voice and high player satisfaction under high-volume conditions</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-title">Player Engagement</span>
+        <span class="exp-date">Jan 2020 – May 2021</span>
+      </div>
+      <p class="exp-company">Keywords Studios Manila (Playdemic)</p>
+      <ul class="exp-bullets">
+        <li>Built foundational skills in ticketing, escalation handling, and player communication</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <p class="section-label">Skills & Tools</p>
+
+    <div class="skills-group">
+      <p class="skills-group-label">Support & Operations</p>
+      <div class="tag-row">
+        <span class="tag highlight">T1–T3 Player Support</span>
+        <span class="tag highlight">Community Moderation</span>
+        <span class="tag">Scheduling</span>
+        <span class="tag">Data Entry</span>
+        <span class="tag">File Organization</span>
+        <span class="tag">Escalation Handling</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-group-label">Tools & Platforms</p>
+      <div class="tag-row">
+        <span class="tag">Google Sheets</span>
+        <span class="tag">Microsoft Excel</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">Discord</span>
+        <span class="tag highlight">Claude</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">NotebookLM</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-group-label">Content & Media</p>
+      <div class="tag-row">
+        <span class="tag">YouTube Video Editing</span>
+        <span class="tag">TikTok Content</span>
+        <span class="tag">SEO Research</span>
+        <span class="tag">Guide Writing</span>
+        <span class="tag">Google Trends</span>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <p class="skills-group-label">Development</p>
+      <div class="tag-row">
+        <span class="tag highlight">Node.js</span>
+        <span class="tag highlight">Express</span>
+        <span class="tag">HTML / CSS / JS</span>
+        <span class="tag">In-house Tool Building</span>
+        <span class="tag">Process Automation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <p class="section-label">Education</p>
+    <div class="edu-item">
+      <div>
+        <p class="edu-degree">Bachelor of Science in Computer Science</p>
+        <p class="edu-school">STI College Ortigas-Cainta</p>
+      </div>
+      <span class="edu-date">Dec 2015 – Dec 2019</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Jessie Roi Bautista &mdash; <a href="portfolio.html" style="color:var(--muted);text-decoration:none;">Back to Portfolio</a></p>
+</footer>
+
+</body>
+</html>
